@@ -4,6 +4,8 @@ export enum FieldType {
   DATE_RANGE = 'dateRange',
 }
 
+// export type FieldType = 'input' | 'select' | 'dateRange'
+
 export type FieldOptions = { label: string; value: any }[]
 
 export type FieldOptionsFuc = (

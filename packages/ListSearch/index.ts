@@ -1,4 +1,5 @@
 import ListSearch from './ListSearch'
 
-export * from './types'
+export type { FieldItem } from './PropsType'
+export { FieldType } from './PropsType'
 export default ListSearch

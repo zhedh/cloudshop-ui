@@ -1,7 +1,7 @@
 import { Button, Form, FormInstance } from 'antd'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { FieldItem } from './types'
+import { FieldItem } from './PropsType'
 import ListSearchFeild from './ListSearchFeild'
 
 interface ListSearchProps {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { DatePicker, Input, Select } from 'antd'
-import { FieldItem, FieldOptions, FieldType } from './types'
+import { FieldItem, FieldOptions, FieldType } from './PropsType'
 
 const { RangePicker } = DatePicker
 
