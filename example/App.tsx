@@ -3,12 +3,17 @@ import './App.css'
 import { ListSearch } from '../packages'
 import { Form } from 'antd'
 import { FieldType } from '../packages/ListSearch'
+import { styled } from 'styled-components'
+
+const Container = styled.div`
+  background-color: #F9F9F9;
+`
 
 function App() {
   const [form] = Form.useForm()
 
   return (
-    <>
+    <Container>
       <ListSearch
         form={form}
         fields={[
@@ -21,27 +26,33 @@ function App() {
             type: FieldType.SELECT,
             name: 'age',
             label: '年龄',
-            options: [
-              {
-                value: 18,
-                label: '18',
-              },
-              {
-                value: 19,
-                label: '19',
-              },
-              {
-                value: 120,
-                label: '20',
-              },
-            ],
+            options: async(searchValue, values: Record<string,any>)=> {
+              console.log('values---: ', values)
+              return [
+                {
+                  value: 18,
+                  label: '18',
+                },
+                {
+                  value: 19,
+                  label: '19',
+                },
+                {
+                  value: 120,
+                  label: '20',
+                },
+              ]
+            },
+            attributes: {
+              showSearch: true
+            }
           },
         ]}
         onSearch={function (values: any): void {
           console.log('values: ', values)
         }}
       ></ListSearch>
-    </>
+    </Container>
   )
 }
 

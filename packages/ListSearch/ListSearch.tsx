@@ -3,19 +3,19 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { FieldItem } from './PropsType'
 import ListSearchFeild from './ListSearchFeild'
+import { debounce } from '../utils/common'
 
 interface ListSearchProps {
   form: FormInstance<any>
   fields: FieldItem[]
   initialValues?: Record<string, any>
   loading?: boolean
+  delay?: number
   onValuesChange?: (changedValues: any, values: any) => void
   onSearch: (values: any) => void
 }
 
 const StyledForm = styled.div`
-  padding: 10px;
-
   .ant-form-item {
     margin: 10px;
   }
@@ -26,7 +26,6 @@ const ListSearch: React.FC<ListSearchProps> = (props) => {
     form,
     initialValues = {},
     fields = [],
-    // onValuesChange,
     onSearch = () => undefined,
   } = props
   const [changedValues, setChangedValues] = useState({})
@@ -35,10 +34,10 @@ const ListSearch: React.FC<ListSearchProps> = (props) => {
     onSearch(initialValues)
   }, [])
 
-  const onValuesChange = (changedValues: any, values: any) => {
+  const onValuesChange = debounce((changedValues: any, values: any) => {
     setChangedValues(changedValues)
     props.onValuesChange && props.onValuesChange(changedValues, values)
-  }
+  }, props.delay ?? 300)
 
   return (
     <StyledForm>
