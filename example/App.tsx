@@ -1,8 +1,9 @@
 import './App.css'
 
-import { ListSearch } from '../packages'
+// import { ListSearch } from '../lib/retail-ui.js'
+// import { ListSearch } from '../lib/retail-ui.js'
 import { Form } from 'antd'
-import { FieldType } from '../packages/ListSearch'
+import ListSearch, { FieldType } from '../packages/ListSearch'
 import { styled } from 'styled-components'
 
 const Container = styled.div`
@@ -26,11 +27,11 @@ function App() {
             type: FieldType.SELECT,
             name: 'age',
             label: '年龄',
-            options: async(searchValue, values: Record<string,any>, type: string)=> {
+            options: async(searchValue: string, values: Record<string,any>, type: string)=> {
               console.log('searchValue: ', searchValue)
               console.log('values---: ', values)
               console.log('type---: ', type)
-              return [
+              const data =  [
                 {
                   value: 18,
                   label: '18',
@@ -40,10 +41,20 @@ function App() {
                   label: '19',
                 },
                 {
-                  value: 120,
+                  value: 20,
                   label: '20',
                 },
-              ]
+                {
+                  value: 21,
+                  label: '21',
+                },
+              ].filter((i) => i.label.includes(searchValue))
+
+              return new Promise((resolve)=> {
+                setTimeout(()=> {
+                  resolve(data)
+                }, 300)
+              })
             },
             attributes: {
               showSearch: true

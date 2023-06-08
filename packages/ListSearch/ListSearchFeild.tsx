@@ -23,7 +23,11 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
 
   useEffect(() => {
     if (type !== FieldType.SELECT) return
-    updateOptions(searchValue, props.changedValues, 'changedValues')
+
+    const optionsType = Object.keys(props.changedValues).length
+      ? 'changedValues'
+      : 'searchValue'
+    updateOptions(searchValue, props.changedValues, optionsType)
   }, [props.changedValues, props.field])
 
   const handleSearch = (v: string) => {
@@ -59,7 +63,7 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
           options={feildOptions}
           value={props.value}
           onChange={props.onChange}
-          onSearch={handleSearch}
+          onSearch={attributes.showSearch ? handleSearch : undefined}
         />
       )
 
