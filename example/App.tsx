@@ -26,9 +26,10 @@ function App() {
             type: FieldType.SELECT,
             name: 'age',
             label: '年龄',
-            options: async(searchValue, values: Record<string,any>)=> {
+            options: async(searchValue, values: Record<string,any>, type: string)=> {
               console.log('searchValue: ', searchValue)
               console.log('values---: ', values)
+              console.log('type---: ', type)
               return [
                 {
                   value: 18,
