@@ -27,6 +27,7 @@ function App() {
             name: 'age',
             label: '年龄',
             options: async(searchValue, values: Record<string,any>)=> {
+              console.log('searchValue: ', searchValue)
               console.log('values---: ', values)
               return [
                 {
