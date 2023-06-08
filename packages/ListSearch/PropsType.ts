@@ -4,13 +4,13 @@ export enum FieldType {
   DATE_RANGE = 'dateRange',
 }
 
-export type FieldOptions = { label: string; value: any }[]
+export type FieldOptions = { label: string; value: string | number }[]
 
 export type FieldOptionsFuc = (
   searchValue: string,
   changedValues: Record<string, any>,
   type: 'searchValue' | 'changedValues'
-) => Promise<{ label: string; value: any }[]>
+) => Promise<FieldOptions | undefined>
 
 export interface FieldItem {
   type: FieldType
