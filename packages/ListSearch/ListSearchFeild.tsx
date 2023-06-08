@@ -47,7 +47,7 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
   ) => {
     if (typeof options === 'function') {
       const data = await options(searchValue, changedValues, type)
-      if(!data) return
+      if (!data) return
       setFeildOptions(data ?? [])
     }
   }
