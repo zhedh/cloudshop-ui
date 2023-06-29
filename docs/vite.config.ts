@@ -11,4 +11,7 @@ const options = {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), { enforce: 'pre', ...mdx(options) }],
+  server: {
+    host: '0.0.0.0',
+  },
 })

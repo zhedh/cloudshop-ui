@@ -1,5 +1,9 @@
 :root {
-  --content-width: 1280px
+  --content-width: 1280px;
+  --header-height: 55px;
+  --sider-width: 240px;
+
+  --block-spacing: 20px;
 
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
