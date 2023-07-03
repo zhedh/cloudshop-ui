@@ -6,11 +6,11 @@ import Sider from './Sider'
 const Layout: React.FC = () => {
   return (
     <>
-      <Header></Header>
+      <Header />
       <Content>
-        <Sider></Sider>
+        <Sider />
         <article>
-          <Outlet></Outlet>
+          <Outlet />
         </article>
       </Content>
     </>
@@ -18,12 +18,14 @@ const Layout: React.FC = () => {
 }
 
 const Content = styled.main`
+  position: relative;
+  width: var(--content-width);
+  margin: 0 auto;
   display: flex;
 
   > article {
     padding: var(--block-spacing);
   }
 `
-
 
 export default Layout

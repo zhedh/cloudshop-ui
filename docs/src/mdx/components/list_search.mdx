@@ -1,0 +1,30 @@
+# ListSearch 列表搜索
+
+## 介绍
+
+列表弹层用弹层展示简单列表。
+
+## 引入
+
+```tsx
+import { Suspense } from 'react'
+import { RouterProvider } from 'react-router-dom'
+import router from './routes'
+import ThemeStyle from './components/Theme'
+
+function App() {
+  return (
+    <Suspense fallback={<>loading...</>}>
+      <ThemeStyle />
+      <RouterProvider router={router} />
+      <p>这是一段文本</p>  
+    </Suspense>
+  )
+}
+
+export default App
+```
+
+import { ListSearch } from 'cloudshop-ui'
+
+<ListSearch></ListSearch>{' '}

@@ -1,5 +1,6 @@
 :root {
-  --content-width: 1280px;
+  /* --content-width: 1280px; */
+  --content-width: 1024px;
   --header-height: 55px;
   --sider-width: 240px;
 
