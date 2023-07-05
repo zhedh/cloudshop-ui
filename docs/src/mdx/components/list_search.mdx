@@ -7,24 +7,95 @@
 ## 引入
 
 ```tsx
-import { Suspense } from 'react'
-import { RouterProvider } from 'react-router-dom'
-import router from './routes'
-import ThemeStyle from './components/Theme'
-
-function App() {
-  return (
-    <Suspense fallback={<>loading...</>}>
-      <ThemeStyle />
-      <RouterProvider router={router} />
-      <p>这是一段文本</p>  
-    </Suspense>
-  )
-}
-
-export default App
-```
-
 import { ListSearch } from 'cloudshop-ui'
 
-<ListSearch></ListSearch>{' '}
+;<ListSearch></ListSearch>
+```
+
+## 示例
+
+### 基础示例
+
+import { ListSearch, FieldType } from 'cloudshop-ui'
+
+<div className="components">
+  <ListSearch
+    fields={[
+      {
+        type: FieldType.INPUT,
+        name: 'name',
+        label: '名字',
+      },
+      {
+        type: FieldType.SELECT,
+        name: 'age',
+        label: '年龄',
+        options: [
+          { label: '18', value: 18 },
+          { label: '19', value: 19 },
+        ],
+        attributes: {
+          showSearch: true,
+          filterOption: false,
+        },
+      },
+      {
+        type: FieldType.DATE_RANGE,
+        name: 'dateRange',
+        label: '注册时间',
+      },
+    ]}
+    onSearch={(values) => console.log('values: ', values)}
+  />
+</div>
+
+```tsx
+import { Form } from 'antd'
+import ListSearch, { FieldItem, FieldType } from 'cloudshop-ui'
+
+export default () => {
+  const [form] = Form.useForm()
+
+  const fields: FieldItem[] = [
+    {
+      type: FieldType.INPUT,
+      name: 'name',
+      label: '名字',
+    },
+    {
+      type: FieldType.SELECT,
+      name: 'age',
+      label: '年龄',
+      options: [
+        { label: '18', value: 18 },
+        { label: '19', value: 19 },
+      ],
+      attributes: {
+        showSearch: true,
+        filterOption: false,
+      },
+    },
+    {
+      type: FieldType.DATE_RANGE,
+      name: 'dateRange',
+      label: '注册时间',
+    },
+  ]
+
+  const handleSearch = (values: Record<string, any>) => {
+    console.log('values: ', values)
+  }
+
+  return <ListSearch form={form} fields={fields} onSearch={handleSearch} />
+}
+```
+
+## API
+
+ListSearch 属性说明如下：
+
+| 属性     | 说明                               | 类型                                  | 默认值 |
+| :------- | :--------------------------------- | :------------------------------------ | :----- |
+| form     | antd Form.useForm() 创建的表单实例 | FormInstance\<any\>                   | null   |
+| fields   | 表单配置项                         | FieldItem[]                           | []     |
+| onSearch | 点击查询按钮时的回调               | (values: Record\<string, any>) =>void | -      |

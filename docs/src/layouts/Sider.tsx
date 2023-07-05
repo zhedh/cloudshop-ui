@@ -46,8 +46,9 @@ const SiderContainer = styled.aside`
   text-align: left;
 
   > label {
+    display: block;
     margin-bottom: 10px;
-    font-weight: bold;
+    font-weight: 500;
   }
 
   ul {
@@ -57,7 +58,7 @@ const SiderContainer = styled.aside`
     list-style: none;
 
     li {
-      padding: 10px 0;
+      padding: 5px 0;
       line-height: 1.6;
       color: var(--sub-text-color);
 

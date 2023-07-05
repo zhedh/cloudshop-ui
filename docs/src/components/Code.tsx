@@ -1,8 +1,13 @@
 import SyntaxHighlighter, {
   SyntaxHighlighterProps,
+  Light,
 } from 'react-syntax-highlighter'
 import { atelierSeasideLight } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import styled from 'styled-components'
+
+import tsx from 'react-syntax-highlighter/dist/esm/languages/hljs/typescript'
+
+Light.registerLanguage('tsx', tsx)
 
 function code({ className, ...props }: SyntaxHighlighterProps) {
   const match = /language-(\w+)/.exec(className || '')
