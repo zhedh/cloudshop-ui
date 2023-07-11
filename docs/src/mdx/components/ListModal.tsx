@@ -1,23 +1,8 @@
-# ListModal 列表弹层
-
-## 介绍
-
-列表弹层用弹层展示简单列表。
-
-## 引入
-
-```tsx javascript
-import { ListModal } from 'cloudshop-ui'
-```
-
-## 示例
-
-```tsx
 import { Button } from 'antd'
 import { ListModal } from 'cloudshop-ui'
 import { useState } from 'react'
 
-function App() {
+function ListModalExample() {
   const [visible, setVisible] = useState(false)
 
   const dataSource = [
@@ -69,5 +54,4 @@ function App() {
   )
 }
 
-export default App
-```
+export default ListModalExample

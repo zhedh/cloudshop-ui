@@ -7,7 +7,7 @@ export default [
   {
     path: 'button',
     name: 'Button 按钮',
-    element: HighlighterCode(Button),
+    element: HighlighterCode(Button , {example: <>你好，欢迎光临</>}),
   },
   {
     path: 'list-search',

@@ -11,7 +11,10 @@
   "typings": "./lib/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/retail-ui.js",
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/retail-ui.js"
+      },
       "require": "./lib/retail-ui.umd.cjs"
     }
   },

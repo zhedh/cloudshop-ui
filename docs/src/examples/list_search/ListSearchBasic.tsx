@@ -1,8 +1,7 @@
 import { Form } from 'antd'
 import ListSearch, { FieldItem, FieldType } from 'cloudshop-ui'
-import styled from 'styled-components'
 
-export default () => {
+const ListSearchBasic: React.FC = () => {
   const [form] = Form.useForm()
 
   const fields: FieldItem[] = [
@@ -36,13 +35,10 @@ export default () => {
   }
 
   return (
-    <Container>
+    <div className="components">
       <ListSearch form={form} fields={fields} onSearch={handleSearch} />
-    </Container>
+    </div>
   )
 }
 
-const Container = styled.div`
-  background-color: #f9f9f9;
-`
-
+export default ListSearchBasic

@@ -8,7 +8,6 @@
 
 ```tsx
 import { ListSearch } from 'cloudshop-ui'
-
 ;<ListSearch></ListSearch>
 ```
 
@@ -90,12 +89,119 @@ export default () => {
 }
 ```
 
+### 动态选项
+
+<div className="components">
+  <ListSearch
+    fields={[
+      {
+        type: FieldType.INPUT,
+        name: 'name',
+        label: '名字',
+      },
+      {
+        type: FieldType.SELECT,
+        name: 'age',
+        label: '年龄',
+        options: (searchValue, changedValues, type) => {
+          if (type === 'searchValue') {
+            return [
+              { label: '18', value: 18 },
+              { label: '19', value: 19 },
+              { label: '20', value: 20 },
+              { label: '21', value: 21 },
+              { label: '22', value: 22 },
+            ].filter((i) => i.label.includes(searchValue))
+          }
+        },
+        attributes: {
+          showSearch: true,
+          filterOption: false,
+        },
+      },
+    ]}
+    onSearch={(values) => console.log('values: ', values)}
+  />
+</div>
+
+```tsx
+import { Form } from 'antd'
+import ListSearch, { FieldItem, FieldType } from 'cloudshop-ui'
+
+export default () => {
+  const [form] = Form.useForm()
+
+  const fields: FieldItem[] = [
+    {
+      type: FieldType.INPUT,
+      name: 'name',
+      label: '名字',
+    },
+    {
+      type: FieldType.SELECT,
+      name: 'age',
+      label: '年龄',
+      options: (searchValue, changedValues, type) => {
+        if (type === 'searchValue') {
+          // 支持 Promise
+          return Promise.resolve([
+            { label: '18', value: 18 },
+            { label: '19', value: 19 },
+            { label: '20', value: 20 },
+            { label: '21', value: 21 },
+            { label: '22', value: 22 },
+          ].filter((i) => i.label.includes(searchValue)))
+        }
+      },
+      attributes: {
+        showSearch: true,
+        filterOption: false,
+      },
+    },
+    {
+      type: FieldType.DATE_RANGE,
+      name: 'dateRange',
+      label: '注册时间',
+    },
+  ]
+
+  const handleSearch = (values: Record<string, any>) => {
+    console.log('values: ', values)
+  }
+
+  return <ListSearch form={form} fields={fields} onSearch={handleSearch} />
+}
+```
+
 ## API
 
-ListSearch 属性说明如下：
+### ListSearch 属性说明如下：
 
 | 属性     | 说明                               | 类型                                  | 默认值 |
 | :------- | :--------------------------------- | :------------------------------------ | :----- |
 | form     | antd Form.useForm() 创建的表单实例 | FormInstance\<any\>                   | null   |
 | fields   | 表单配置项                         | FieldItem[]                           | []     |
 | onSearch | 点击查询按钮时的回调               | (values: Record\<string, any>) =>void | -      |
+
+<br />
+
+### FieldItem 属性说明如下：
+
+| 属性       | 说明                            | 类型                                             | 默认值          |
+| :--------- | :------------------------------ | :----------------------------------------------- | :-------------- |
+| type       | 表单类型                        | FieldType                                        | FieldType.INPUT |
+| name       | 字段名                          | string                                           | -               |
+| label      | 标签文本                        | string                                           | -               |
+| options    | 数据化配置选项内容              | FieldOptions \| FieldOptionsFuc                  | []              |
+| attributes | 对应的 antd 表单类型的属性      | Record\<string, any> & React.RefAttributes\<any> | -               |
+| delay      | onSearch 方法防抖时间，单位毫秒 | number                                           | 300             |
+
+<br />
+
+### FieldType 属性说明如下：
+
+- FieldType.INPUT：输入框
+- FieldType.SELECT：选择器
+- FieldType.DATE_RANGE：时间区间选择器
+
+<br />

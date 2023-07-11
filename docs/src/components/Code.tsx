@@ -24,8 +24,11 @@ function code({ className, ...props }: SyntaxHighlighterProps) {
   )
 }
 
-const Post = (Component: (props: any) => JSX.Element) => {
-  return <Component components={{ code }} />
+const Post = (
+  Component: (props: any) => JSX.Element,
+  props?: Record<string, any>
+) => {
+  return <Component {...props} components={{ code }} />
 }
 
 const SyntaxHighlighterContainer = styled(SyntaxHighlighter)`
