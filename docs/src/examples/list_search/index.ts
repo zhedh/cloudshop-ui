@@ -1,3 +1,3 @@
-import ListSearchBase from './ListSearchBase'
+import ListSearchBasic from './ListSearchBasic'
 
-export { ListSearchBase }
+export { ListSearchBasic }

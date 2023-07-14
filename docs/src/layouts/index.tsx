@@ -27,9 +27,9 @@ const Content = styled.main`
     flex: 1;
     box-sizing: border-box;
     height: calc(100vh - var(--header-height));
-    padding: var(--block-spacing);
+    padding: var(--block-spacing) 30px;
     overflow-y: auto;
-    
+    background-color: #f6f6f6;
 
     h1,
     h2,
@@ -37,7 +37,7 @@ const Content = styled.main`
     h4,
     h5,
     h6 {
-      font-weight: 400;
+      font-weight: 500;
     }
 
     p {
@@ -68,12 +68,11 @@ const Content = styled.main`
       }
     }
 
-    .components {
-      /* --background-color: #fff;
-      --border-color: #f3f3f3; */
+    section {
+      margin-bottom: 30px;
       padding: 20px;
-      border: 1px solid var(--border-color);
-      border-radius: 5px;
+      border-radius: 20px;
+      background-color: #fff;
     }
   }
 `

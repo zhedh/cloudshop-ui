@@ -1,5 +1,6 @@
 import { Form } from 'antd'
-import ListSearch, { FieldItem, FieldType } from 'cloudshop-ui'
+import { ListSearch, FieldItem, FieldType } from 'cloudshop-ui'
+import withComponent from '../../components/withComponent'
 
 const ListSearchBasic: React.FC = () => {
   const [form] = Form.useForm()
@@ -34,11 +35,7 @@ const ListSearchBasic: React.FC = () => {
     console.log('values: ', values)
   }
 
-  return (
-    <div className="components">
-      <ListSearch form={form} fields={fields} onSearch={handleSearch} />
-    </div>
-  )
+  return <ListSearch form={form} fields={fields} onSearch={handleSearch} />
 }
 
-export default ListSearchBasic
+export default withComponent(ListSearchBasic)

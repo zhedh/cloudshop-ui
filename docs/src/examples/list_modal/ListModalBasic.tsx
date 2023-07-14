@@ -1,8 +1,9 @@
 import { Button } from 'antd'
-import { ListModal } from 'cloudshop-ui'
 import { useState } from 'react'
+import { ListModal } from 'cloudshop-ui'
+import withComponent from '../../components/withComponent'
 
-function ListModalExample() {
+function ListModalBasic() {
   const [visible, setVisible] = useState(false)
 
   const dataSource = [
@@ -54,4 +55,4 @@ function ListModalExample() {
   )
 }
 
-export default ListModalExample
+export default withComponent(ListModalBasic)

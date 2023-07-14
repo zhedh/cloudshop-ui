@@ -1,58 +1,36 @@
 # ListSearch 列表搜索
 
-## 介绍
+<section>
+
+### 介绍
 
 列表弹层用弹层展示简单列表。
 
-## 引入
+</section>
+<section>
+
+### 引入
 
 ```tsx
 import { ListSearch } from 'cloudshop-ui'
 ;<ListSearch></ListSearch>
 ```
 
-## 示例
+</section>
 
-### 基础示例
+## 代码演示
 
-import { ListSearch, FieldType } from 'cloudshop-ui'
+<section>
 
-<div className="components">
-  <ListSearch
-    fields={[
-      {
-        type: FieldType.INPUT,
-        name: 'name',
-        label: '名字',
-      },
-      {
-        type: FieldType.SELECT,
-        name: 'age',
-        label: '年龄',
-        options: [
-          { label: '18', value: 18 },
-          { label: '19', value: 19 },
-        ],
-        attributes: {
-          showSearch: true,
-          filterOption: false,
-        },
-      },
-      {
-        type: FieldType.DATE_RANGE,
-        name: 'dateRange',
-        label: '注册时间',
-      },
-    ]}
-    onSearch={(values) => console.log('values: ', values)}
-  />
-</div>
+### 基础用法
+
+{props.basic}
 
 ```tsx
 import { Form } from 'antd'
-import ListSearch, { FieldItem, FieldType } from 'cloudshop-ui'
+import { ListSearch, FieldItem, FieldType } from 'cloudshop-ui'
 
-export default () => {
+const APP: React.FC = () => {
   const [form] = Form.useForm()
 
   const fields: FieldItem[] = [
@@ -67,7 +45,7 @@ export default () => {
       label: '年龄',
       options: [
         { label: '18', value: 18 },
-        { label: '19', value: 19 },
+        { label: '18', value: 18 },
       ],
       attributes: {
         showSearch: true,
@@ -87,9 +65,17 @@ export default () => {
 
   return <ListSearch form={form} fields={fields} onSearch={handleSearch} />
 }
+
+export default APP
 ```
 
+</section>  
+
+<section>
+  
 ### 动态选项
+
+import { ListSearch, FieldType } from 'cloudshop-ui'
 
 <div className="components">
   <ListSearch
@@ -144,13 +130,15 @@ export default () => {
       options: (searchValue, changedValues, type) => {
         if (type === 'searchValue') {
           // 支持 Promise
-          return Promise.resolve([
-            { label: '18', value: 18 },
-            { label: '19', value: 19 },
-            { label: '20', value: 20 },
-            { label: '21', value: 21 },
-            { label: '22', value: 22 },
-          ].filter((i) => i.label.includes(searchValue)))
+          return Promise.resolve(
+            [
+              { label: '18', value: 18 },
+              { label: '19', value: 19 },
+              { label: '20', value: 20 },
+              { label: '21', value: 21 },
+              { label: '22', value: 22 },
+            ].filter((i) => i.label.includes(searchValue))
+          )
         }
       },
       attributes: {
@@ -173,9 +161,14 @@ export default () => {
 }
 ```
 
+</section>
+
+
 ## API
 
-### ListSearch 属性说明如下：
+<section>
+
+### ListSearch 属性说明
 
 | 属性     | 说明                               | 类型                                  | 默认值 |
 | :------- | :--------------------------------- | :------------------------------------ | :----- |
@@ -183,9 +176,10 @@ export default () => {
 | fields   | 表单配置项                         | FieldItem[]                           | []     |
 | onSearch | 点击查询按钮时的回调               | (values: Record\<string, any>) =>void | -      |
 
-<br />
+</section>
+<section>
 
-### FieldItem 属性说明如下：
+### FieldItem 属性说明
 
 | 属性       | 说明                            | 类型                                             | 默认值          |
 | :--------- | :------------------------------ | :----------------------------------------------- | :-------------- |
@@ -196,12 +190,13 @@ export default () => {
 | attributes | 对应的 antd 表单类型的属性      | Record\<string, any> & React.RefAttributes\<any> | -               |
 | delay      | onSearch 方法防抖时间，单位毫秒 | number                                           | 300             |
 
-<br />
+</section>
+<section>
 
-### FieldType 属性说明如下：
+### FieldType 属性说明
 
 - FieldType.INPUT：输入框
 - FieldType.SELECT：选择器
 - FieldType.DATE_RANGE：时间区间选择器
 
-<br />
+</section>

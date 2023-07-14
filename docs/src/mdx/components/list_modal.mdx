@@ -1,8 +1,14 @@
 # ListModal 列表弹层
 
+<section>
+
 ## 介绍
 
 列表弹层用弹层展示简单列表。
+
+</section>
+
+<section>
 
 ## 引入
 
@@ -10,7 +16,13 @@
 import { ListModal } from 'cloudshop-ui'
 ```
 
-## 示例
+</section>
+
+## 代码演示
+
+<section>
+
+{props.basic}
 
 ```tsx
 import { Button } from 'antd'
@@ -71,3 +83,23 @@ function App() {
 
 export default App
 ```
+
+</section>
+
+## API
+
+<section>
+
+### ListModal 属性说明
+
+| 属性       | 说明                                      | 类型                               | 默认值 |
+| :--------- | :---------------------------------------- | :--------------------------------- | :----- |
+| open       | 对话框是否可见                            | boolean                            | -      |
+| rowKey     | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | key    |
+| columns    | 表格列的配置描述，同 antd                 | string \| ColumnsType[]            | -      |
+| dataSource | 数据数组，同 antd                         | object[]                           | -      |
+| size       | 表格大小                                  | large \| middle \| small           | large  |
+| pagination | 表格分页，同 antd                         | false \| TablePaginationConfig     | false  |
+| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调      | (e) =>void                         | -      |
+
+</section>
