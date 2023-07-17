@@ -1,0 +1,21 @@
+:root {
+  /* 颜色定义 */
+  --white: #ffffff;
+
+  /* 字体定义 */
+  --text-color: #333;
+  --sub-text-color: #666;
+  --desc-text-color: #999;
+
+  /* 主题定义 */
+  --primary-color: #3975C6;
+  --background-color: #f3f3f3;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #ff4d4f;
+
+  /* 其他定义 */
+  --margin: 20px;
+  --padding: 20px;
+  --border-radius: 4px;
+}

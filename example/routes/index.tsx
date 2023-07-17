@@ -1,5 +1,6 @@
 import ListModal from '../components/ListModal'
 import ListSearch from '../components/ListSearch'
+import Card from '../components/Card'
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: '/list-modal',
     element: <ListModal />,
+  },
+  {
+    path: '/card',
+    element: <Card />,
   },
   // {
   //   path: '*',r
