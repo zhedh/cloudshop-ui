@@ -21,6 +21,20 @@
   -webkit-text-size-adjust: 100%; */
 }
 
+:root {
+  --white: #ffffff;
+  --text-color: #333;
+  --sub-text-color: #666;
+  --desc-text-color: #999;
+  --primary-color: #3975C6;
+  --background-color: #f3f3f3;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #ff4d4f;
+  --edge-distance: 20px;
+  --border-radius: 4px
+}
+
 html {
   font-size: 14px;
 }

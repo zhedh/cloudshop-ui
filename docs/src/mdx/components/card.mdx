@@ -1,0 +1,89 @@
+# Card 卡片
+
+<section>
+
+## 介绍
+
+卡片容器，可承载文字、列表、图片、段落，以及可以自定义操作项和尾部。
+
+</section>
+
+<section>
+
+## 引入
+
+```tsx
+import { Card } from 'cloudshop-ui'
+```
+
+</section>
+
+## 代码演示
+
+<section>
+
+import { Card } from 'cloudshop-ui'
+import { Button } from 'antd'
+
+<Card
+  title="默认卡片"
+  actions={<Button>Action</Button>}
+  footer={
+    <div style={{ textAlign: 'right' }}>
+      <Button>取消</Button>
+      &nbsp;&nbsp;
+      <Button type="primary">确定</Button>
+    </div>
+  }
+>
+  <p>这是卡片内容...</p>
+  <p>这是卡片内容...</p>
+  <p>这是卡片内容....</p>
+</Card>
+
+```tsx
+import { Button } from 'antd'
+import { Card } from 'cloudshop-ui'
+
+function App() {
+  return (
+    <Card
+      title="默认卡片"
+      actions={<Button>Action</Button>}
+      footer={
+        <div style={{textAlign: 'right'}}>
+          <Button>取消</Button>
+          &nbsp;&nbsp;
+          <Button type="primary">确定</Button>
+        </div>
+      }
+    >
+      <p>这是卡片内容...</p>
+      <p>这是卡片内容...</p>
+      <p>这是卡片内容....</p>
+    </Card>
+  )
+}
+
+export default App
+```
+
+</section>
+
+## API
+
+<section>
+
+### ListModal 属性说明
+
+| 属性       | 说明                                      | 类型                               | 默认值 |
+| :--------- | :---------------------------------------- | :--------------------------------- | :----- |
+| open       | 对话框是否可见                            | boolean                            | -      |
+| rowKey     | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | key    |
+| columns    | 表格列的配置描述，同 antd                 | string \| ColumnsType[]            | -      |
+| dataSource | 数据数组，同 antd                         | object[]                           | -      |
+| size       | 表格大小                                  | large \| middle \| small           | large  |
+| pagination | 表格分页，同 antd                         | false \| TablePaginationConfig     | false  |
+| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调      | (e) =>void                         | -      |
+
+</section>

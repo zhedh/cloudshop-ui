@@ -1,15 +1,25 @@
+import HighlighterCode from '../components/Code'
+
+// MDX
 import Button from '../mdx/components/button.mdx'
+import Card from '../mdx/components/card.mdx'
 import ListSearch from '../mdx/components/list_search.mdx'
 import ListModal from '../mdx/components/list_modal.mdx'
-import HighlighterCode from '../components/Code'
+
+// 示例
 import { ListSearchBasic } from '../examples/list_search'
-import {ListModalBasic} from '../examples/list_modal'
+import { ListModalBasic } from '../examples/list_modal'
 
 export default [
   {
     path: 'button',
     name: 'Button 按钮',
     element: HighlighterCode(Button, { example: <ListSearchBasic /> }),
+  },
+  {
+    path: 'card',
+    name: 'Card 卡片',
+    element: HighlighterCode(Card),
   },
   {
     path: 'list-search',
@@ -19,6 +29,6 @@ export default [
   {
     path: 'list-modal',
     name: 'ListModal 列表弹层',
-    element: HighlighterCode(ListModal, { basic: <ListModalBasic/>}),
+    element: HighlighterCode(ListModal, { basic: <ListModalBasic /> }),
   },
 ]
