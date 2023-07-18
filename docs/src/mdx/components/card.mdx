@@ -51,7 +51,7 @@ function App() {
       title="默认卡片"
       actions={<Button>Action</Button>}
       footer={
-        <div style={{textAlign: 'right'}}>
+        <div style={{ textAlign: 'right' }}>
           <Button>取消</Button>
           &nbsp;&nbsp;
           <Button type="primary">确定</Button>
@@ -60,7 +60,7 @@ function App() {
     >
       <p>这是卡片内容...</p>
       <p>这是卡片内容...</p>
-      <p>这是卡片内容....</p>
+      <p>这是卡片内容...</p>
     </Card>
   )
 }
@@ -74,16 +74,13 @@ export default App
 
 <section>
 
-### ListModal 属性说明
+### Card 属性说明
 
-| 属性       | 说明                                      | 类型                               | 默认值 |
-| :--------- | :---------------------------------------- | :--------------------------------- | :----- |
-| open       | 对话框是否可见                            | boolean                            | -      |
-| rowKey     | 表格行 key 的取值，可以是字符串或一个函数 | string \| function(record): string | key    |
-| columns    | 表格列的配置描述，同 antd                 | string \| ColumnsType[]            | -      |
-| dataSource | 数据数组，同 antd                         | object[]                           | -      |
-| size       | 表格大小                                  | large \| middle \| small           | large  |
-| pagination | 表格分页，同 antd                         | false \| TablePaginationConfig     | false  |
-| onCancel   | 点击遮罩层或右上角叉或取消按钮的回调      | (e) =>void                         | -      |
+| 属性      | 说明                                         | 类型      | 默认值 |
+| :-------- | :------------------------------------------- | :-------- | :----- |
+| title     | 卡片标题                                     | string    | -      |
+| className | 自定义类名                                   | string    | -      |
+| actions   | 卡片操作组，位置在卡片顶部右边，不设置不展示 | ReactNode | -      |
+| footer    | 卡片底部自定义配置，不设置不展示             | ReactNode | -      |
 
 </section>

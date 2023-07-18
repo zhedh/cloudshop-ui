@@ -50,7 +50,7 @@ const Actions = styled.div``
 
 const Footer = styled.footer`
   padding: calc(var(--padding) / 2) var(--padding);
-  border-top: 1px solid var(--background-color);
+  border-top: 1px solid var(--border-color);
 `
 
 export default Card

@@ -1,8 +1,17 @@
 import ListModal from '../components/ListModal'
 import ListSearch from '../components/ListSearch'
 import Card from '../components/Card'
+import Emoji from '../components/Emoji'
 
 const routes = [
+  {
+    path: '/emoji',
+    element: <Emoji />,
+  },
+  {
+    path: '/card',
+    element: <Card />,
+  },
   {
     path: '/list-search',
     element: <ListSearch />,
@@ -11,10 +20,7 @@ const routes = [
     path: '/list-modal',
     element: <ListModal />,
   },
-  {
-    path: '/card',
-    element: <Card />,
-  },
+
   // {
   //   path: '*',r
   //   element: <Quickstart />,
