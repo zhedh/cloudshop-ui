@@ -1,7 +1,7 @@
 {
   "name": "cloudshop-ui",
   "private": false,
-  "version": "0.0.15",
+  "version": "0.1.0",
   "type": "module",
   "files": [
     "lib",
@@ -17,7 +17,8 @@
         "default": "./lib/retail-ui.js"
       },
       "require": "./lib/retail-ui.umd.cjs"
-    }
+    },
+    "./style.css": "./lib/style.css"
   },
   "scripts": {
     "dev": "vite",

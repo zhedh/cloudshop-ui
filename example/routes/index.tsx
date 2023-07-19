@@ -2,6 +2,8 @@ import ListModal from '../components/ListModal'
 import ListSearch from '../components/ListSearch'
 import Card from '../components/Card'
 import Emoji from '../components/Emoji'
+import Loading from '../components/Loading'
+import LoadingContainer from '../components/LoadingContainer'
 
 const routes = [
   {
@@ -19,6 +21,14 @@ const routes = [
   {
     path: '/list-modal',
     element: <ListModal />,
+  },
+  {
+    path: '/loading',
+    element: <Loading />,
+  },
+  {
+    path: '/loading-container',
+    element: <LoadingContainer />,
   },
 
   // {

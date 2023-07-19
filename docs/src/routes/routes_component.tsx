@@ -1,8 +1,8 @@
 import HighlighterCode from '../components/Code'
 
 // MDX
-import Button from '../mdx/components/button.mdx'
 import Card from '../mdx/components/card.mdx'
+import Emoji from '../mdx/components/emoji.mdx'
 import ListSearch from '../mdx/components/list_search.mdx'
 import ListModal from '../mdx/components/list_modal.mdx'
 
@@ -12,14 +12,14 @@ import { ListModalBasic } from '../examples/list_modal'
 
 export default [
   {
-    path: 'button',
-    name: 'Button 按钮',
-    element: HighlighterCode(Button, { example: <ListSearchBasic /> }),
-  },
-  {
     path: 'card',
     name: 'Card 卡片',
     element: HighlighterCode(Card),
+  },
+  {
+    path: 'emoji',
+    name: 'Emoji 表情',
+    element: HighlighterCode(Emoji),
   },
   {
     path: 'list-search',

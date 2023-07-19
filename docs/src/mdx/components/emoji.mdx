@@ -1,0 +1,64 @@
+# Card 表情
+
+<section>
+
+## 介绍
+
+表情选择器，用于选择常用表情。
+
+</section>
+
+<section>
+
+## 引入
+
+```tsx
+import { Emoji } from 'cloudshop-ui'
+```
+
+</section>
+
+## 代码演示
+
+<section>
+
+import { Emoji } from 'cloudshop-ui'
+import { Button } from 'antd'
+
+<Emoji onSelect={(value) => console.log('value: ', value)}>
+  <Button type="primary">选择表情</Button>
+</Emoji>
+
+```tsx
+import { useCallback } from 'react'
+import { Button } from 'antd'
+import { Emoji } from 'cloudshop-ui'
+
+function App() {
+  const handleSelect = useCallback((value: string) => {
+    console.log('value: ', value)
+  }, [])
+
+  return (
+    <Emoji onSelect={handleSelect}>
+      <Button type="primary">选择表情</Button>
+    </Emoji>
+  )
+}
+
+export default App
+```
+
+</section>
+
+## API
+
+<section>
+
+### Emoji 属性说明
+
+| 属性         | 说明         | 类型                    | 默认值 |
+| :----------- | :----------- | :---------------------- | :----- |
+| handleSelect | 表情选择回调 | (value: string) => void | -      |
+
+</section>
