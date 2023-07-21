@@ -11,7 +11,7 @@ import Loading from '../mdx/components/loading.mdx'
 import { ListSearchBasic } from '../examples/list_search'
 import { ListModalBasic } from '../examples/list_modal'
 import { LoadingFull, LoadingPart } from '../examples/loading'
-
+import { ButtonBasic } from '../examples/button'
 
 export default [
   {
@@ -39,7 +39,12 @@ export default [
     name: 'Loading 加载中',
     element: HighlighterCode(Loading, {
       full: <LoadingFull />,
-      part: <LoadingPart/>
+      part: <LoadingPart />,
     }),
+  },
+  {
+    path: 'button',
+    name: 'Button 按钮',
+    element: HighlighterCode(ListModal, { basic: <ButtonBasic /> }),
   },
 ]

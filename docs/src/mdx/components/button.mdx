@@ -1,0 +1,100 @@
+# Button 按钮
+
+<section>
+
+## 介绍
+
+按钮，用于快速生成多个按钮
+
+</section>
+
+<section>
+
+## 引入
+
+```tsx
+import { Button } from 'cloudshop-ui'
+```
+
+</section>
+
+## 代码演示
+
+<section>
+
+<Button
+  buttonProps={{ danger: false }}
+  spaceProps={{
+    wrap: true,
+  }}
+  items={items}
+/>
+
+```tsx
+import { Button } from 'cloudsho-ui'
+import type { MenuProps } from 'antd'
+
+function App() {
+  const onMenuClick: MenuProps['onClick'] = (e) => {
+    console.log('click', e)
+  }
+  const items = [
+    {
+      label: '按钮一',
+      propsField: {
+        type: 'primary',
+        danger: false,
+      },
+      onClick: () => {
+        console.log('按钮一')
+      },
+    },
+    {
+      label: '按钮二',
+      onClick: () => {
+        console.log('按钮二')
+      },
+      propsField: {
+        danger: true,
+      },
+    },
+    {
+      label: '按钮组',
+      dropdown: true,
+      propsField: {
+        menu: {
+          items: [
+            {
+              key: '1',
+              label: '1st item',
+            },
+            {
+              key: '2',
+              label: '2nd item',
+            },
+            {
+              key: '3',
+              label: '3rd item',
+            },
+          ],
+          onClick: onMenuClick,
+        },
+      },
+    },
+  ]
+
+  return (
+    <Button
+      buttonProps={{ danger: false }}
+      spaceProps={{
+        wrap: true,
+      }}
+      items={items}
+    />
+  )
+}
+
+export default App
+```
+
+</section>
