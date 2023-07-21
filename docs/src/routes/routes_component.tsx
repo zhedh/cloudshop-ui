@@ -6,6 +6,7 @@ import Emoji from '../mdx/components/emoji.mdx'
 import ListSearch from '../mdx/components/list_search.mdx'
 import ListModal from '../mdx/components/list_modal.mdx'
 import Loading from '../mdx/components/loading.mdx'
+import Button from '../mdx/components/button.mdx'
 
 // 示例
 import { ListSearchBasic } from '../examples/list_search'
@@ -45,6 +46,6 @@ export default [
   {
     path: 'button',
     name: 'Button 按钮',
-    element: HighlighterCode(ListModal, { basic: <ButtonBasic /> }),
+    element: HighlighterCode(Button, { basic: <ButtonBasic /> }),
   },
 ]

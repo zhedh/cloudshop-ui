@@ -1,5 +1,6 @@
 import { Button } from 'cloudshop-ui'
 import type { MenuProps } from 'antd'
+import withComponent from '../../components/withComponent'
 
 function ButtonBasic() {
   const onMenuClick: MenuProps['onClick'] = (e) => {
@@ -62,4 +63,4 @@ function ButtonBasic() {
   )
 }
 
-export default ButtonBasic
+export default withComponent(ButtonBasic)
