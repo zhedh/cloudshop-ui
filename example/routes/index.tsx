@@ -4,6 +4,7 @@ import Card from '../components/Card'
 import Emoji from '../components/Emoji'
 import Loading from '../components/Loading'
 import LoadingContainer from '../components/LoadingContainer'
+import Button from '../components/Button'
 
 const routes = [
   {
@@ -29,6 +30,10 @@ const routes = [
   {
     path: '/loading-container',
     element: <LoadingContainer />,
+  },
+  {
+    path: '/button',
+    element: <Button />,
   },
 
   // {

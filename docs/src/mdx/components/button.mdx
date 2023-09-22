@@ -1,0 +1,128 @@
+# Button 按钮
+
+<section>
+
+## 介绍
+
+按钮，用于快速生成多个按钮
+
+</section>
+
+<section>
+
+## 引入
+
+```tsx
+import { Button } from 'cloudshop-ui'
+```
+
+</section>
+
+## 代码演示
+
+<section>
+
+{props.basic}
+
+```tsx
+import { Button } from 'cloudsho-ui'
+import type { MenuProps } from 'antd'
+
+function App() {
+  const onMenuClick: MenuProps['onClick'] = (e) => {
+    console.log('click', e)
+  }
+  const items = [
+    {
+      label: '按钮一',
+      propsField: {
+        type: 'primary',
+        danger: false,
+      },
+      onClick: () => {
+        console.log('按钮一')
+      },
+    },
+    {
+      label: '按钮二',
+      onClick: () => {
+        console.log('按钮二')
+      },
+      propsField: {
+        danger: true,
+      },
+    },
+    {
+      label: '按钮组',
+      dropdown: true,
+      propsField: {
+        menu: {
+          items: [
+            {
+              key: '1',
+              label: '1st item',
+            },
+            {
+              key: '2',
+              label: '2nd item',
+            },
+            {
+              key: '3',
+              label: '3rd item',
+            },
+          ],
+          onClick: onMenuClick,
+        },
+      },
+    },
+  ]
+
+  return (
+    <Button
+      buttonProps={{ danger: false }}
+      spaceProps={{
+        wrap: true,
+      }}
+      items={items}
+    />
+  )
+}
+
+export default App
+```
+
+</section>
+
+## API
+
+<section>
+
+### Button 属性说明
+
+| 属性        | 说明            | 类型           | 默认值 |
+| :---------- | :-------------- | :------------- | :----- |
+| items       | 按钮数据        | ColumnsProps[] | -      |
+| spaceProps  | antd Space 配置 | SpaceProps     | -      |
+| buttonProps | 按钮整体配置    | ButtonProps    | -      |
+
+SpaceProps 参考 [Antd Space](https://ant.design/components/space-cn#api)
+
+ButtonProps 参考 [Antd Button](https://ant.design/components/button-cn#api)
+
+</section>
+
+<section>
+
+### ColumnsProps 属性说明
+
+| 属性       | 说明                 | 类型                         | 默认值 |
+| :--------- | :------------------- | :--------------------------- | :----- |
+| dropdown   | 是否是按钮组         | boolean                      | false  |
+| onClick?:  | 按钮点击事件         | Function                     | -      |
+| propsField | 单个按钮配置及按钮组 | ButtonProps \| DropDownProps | -      |
+
+ButtonProps 参考 [Antd Button](https://ant.design/components/button-cn#api)
+
+DropDownProps 参考 [Antd Dropdown](https://ant.design/components/dropdown-cn#dropdownbutton)
+
+</section>
