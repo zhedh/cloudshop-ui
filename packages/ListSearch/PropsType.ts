@@ -6,7 +6,7 @@ export enum FieldType {
 
 export type FieldOptions = { label: string; value: string | number }[]
 
-export const enum FieldOptionType {
+export enum FieldOptionType {
   INITIALIZE = 'initialize',
   SEARCH_CHANGE = 'searchChange',
   VALUES_CHANGE = 'valuesChange',
