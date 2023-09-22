@@ -1,8 +1,8 @@
-import { Outlet } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
+import Layout from '../layouts'
 import guideRoutes from './routes_guide'
 import componentRoutes from './routes_component'
-import Quickstart from '../mdx/guide/quickstart.mdx'
-import Layout from '../layouts'
+import businessRoutes from './routes_business'
 
 const routes = [
   {
@@ -22,14 +22,20 @@ const routes = [
         children: componentRoutes,
       },
       {
+        path: 'business',
+        name: '业务组件',
+        element: <Outlet />,
+        children: businessRoutes,
+      },
+      {
         path: '/',
-        element: <Quickstart />,
+        element: <Navigate to="/guide/quickstart" />,
       },
     ],
   },
   {
     path: '*',
-    element: <Quickstart />,
+    element: <Navigate to="/guide/quickstart" />,
   },
 ]
 

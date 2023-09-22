@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react'
 import { DatePicker, Input, Select } from 'antd'
-import { FieldItem, FieldOptions, FieldType } from './PropsType'
+import {
+  FieldItem,
+  FieldOptionType,
+  FieldOptions,
+  FieldType,
+} from './PropsType'
 
 const { RangePicker } = DatePicker
 
@@ -25,8 +30,8 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
     if (type !== FieldType.SELECT) return
 
     const optionsType = Object.keys(props.changedValues).length
-      ? 'changedValues'
-      : 'searchValue'
+      ? FieldOptionType.VALUES_CHANGE
+      : FieldOptionType.INITIALIZE
     updateOptions(searchValue, props.changedValues, optionsType)
   }, [props.changedValues, props.field])
 
@@ -35,7 +40,8 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
 
     clearTimeout(timer)
     timer = setTimeout(
-      () => updateOptions(v, props.changedValues, 'searchValue'),
+      () =>
+        updateOptions(v, props.changedValues, FieldOptionType.SEARCH_CHANGE),
       delay ?? 300
     )
   }
@@ -43,7 +49,7 @@ const ListSearchFeild: React.FC<ListSearchFeildProps> = (props) => {
   const updateOptions = async (
     searchValue: string,
     changedValues: Record<string, any>,
-    type: 'searchValue' | 'changedValues'
+    type: FieldOptionType
   ) => {
     if (typeof options === 'function') {
       const data = await options(searchValue, changedValues, type)

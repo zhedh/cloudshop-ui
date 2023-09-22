@@ -6,10 +6,16 @@ export enum FieldType {
 
 export type FieldOptions = { label: string; value: string | number }[]
 
+export const enum FieldOptionType {
+  INITIALIZE = 'initialize',
+  SEARCH_CHANGE = 'searchChange',
+  VALUES_CHANGE = 'valuesChange',
+}
+
 export type FieldOptionsFuc = (
   searchValue: string,
   changedValues: Record<string, any>,
-  type: 'searchValue' | 'changedValues'
+  type: FieldOptionType
 ) => Promise<FieldOptions | undefined>
 
 export interface FieldItem {
